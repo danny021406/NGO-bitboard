@@ -1,0 +1,3 @@
+/Users/wangguansheng/main/VScode_cpp/ownp4/CMakeFiles/rebuild_cache.dir
+/Users/wangguansheng/main/VScode_cpp/ownp4/CMakeFiles/edit_cache.dir
+/Users/wangguansheng/main/VScode_cpp/ownp4/CMakeFiles/no.dir

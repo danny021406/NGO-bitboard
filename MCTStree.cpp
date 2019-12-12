@@ -6,11 +6,12 @@ double MCTStree::getscore( ucbnode* nodeptr, int child)
 	char &p = tmp->place;
 	bool &c = tmp->color;
 	double &N = tmp->count ;
-	double &NR = tmp->ravecount;
-	double ret = tmp->ravemean*NR + tmp->mean*N +  sqrt( nodeptr->logc * N )* UCB_WEIGHT;
+	// double &NR = tmp->ravecount;tmp->ravemean*NR + 
+	double ret = tmp->mean*N +  sqrt( nodeptr->logc * N )* UCB_WEIGHT;
 	//cout<<tmp->ravemean<<' '<<ret/(N+NR)<<' '<<N<<' '<<NR<<' '<<nodeptr->logc<<endl;
 	//return tmp->mean + UCB_WEIGHT * sqrt(nodeptr->logc / (N + 1));
-	return ret / (N+NR);
+	// +NR
+	return ret / (N);
 }
 
 ucbnode* MCTStree::getbestchild(ucbnode* nodeptr)
@@ -48,7 +49,7 @@ ucbnode* MCTStree::getbestchild(ucbnode* nodeptr)
 	return (nodeptr->childptr +ret);
 }
 
-void MCTStree::select(board &b)
+void MCTStree::select(board &b) // init
 {
 	
 	bool j = ! b.just_play_color();//next to play
@@ -92,7 +93,7 @@ void MCTStree::run_a_cycle()
 	ucbnode *nodeptr;
 	if(last.csize==0 && last.count > basenum )//�ܤ�simulate 1 ��
 	{
-		last.expansion(b,rave_num,rave_wnum);
+		last.expansion(b);
 		if(last.csize!=0)
 		{
 			totalnode+=last.csize;
@@ -136,7 +137,7 @@ void MCTStree::reset(board &b)
 	root -> count = basenum;
 	root -> logc = 1;
 	memset(root -> child,-1,sizeof(root -> child)  );
-	root-> expansion(b,rave_num,rave_wnum);
+	root-> expansion(b);
 	total = 0;
 	totalnode =0;
 }

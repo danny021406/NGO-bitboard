@@ -1,20 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@danny021406 
-2
-21lclan1024/HaHaNoGo
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
-HaHaNoGo/Main.cpp
-@lclan1024 lclan1024 MCTS+RAVE
-88fa352 on Sep 12, 2018
-484 lines (459 sloc)  7.64 KB
-  
 #include <iostream>
 #include <set>
 #include <map>
@@ -83,7 +67,7 @@ int main(int argc, char** argv)
 	srand(time(NULL)) ;
 	vector<float> policy;
 	float value;
-	//freopen("0016086.txt","w",stdout);
+    
 	while(cin>>s)
 	{
 		if(s=="play"||s=="p")
@@ -188,6 +172,14 @@ int main(int argc, char** argv)
 		{
 			cout<<"=2\n\n";
 		}
+		else if (s == "version")
+		{
+			cout<<"\n\n";
+		}
+		else if (s == "list_commands")
+		{
+			cout<<"\n\n";
+		}
 		else if (s == "rev")
 		{
 			int bsize, wsize, tsize;
@@ -205,7 +197,7 @@ int main(int argc, char** argv)
 		}
 		else if(s== "name")
 		{
-			cout<<"=haha"<< UCB_WEIGHT * 100<<"_rn"<<ravenum<<"_bn"<<basenum << "\n\n";
+			cout<<"dannyyyyy" << "\n\n";
 		}else if(s== "time")
 		{
 			cin>>t;

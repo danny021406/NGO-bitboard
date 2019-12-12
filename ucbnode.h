@@ -19,8 +19,6 @@ public:
 	ucbnode* childptr;
 	double count;//basenum + real
 	double mean; //1:color Ĺ 0:color ��
-	double ravecount;//ravenum +real
-	double ravemean;// 1 color Ĺ  -1 color ��
 	double logc;
 
     void initucbnode(int i,bool j);

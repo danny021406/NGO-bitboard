@@ -20,9 +20,9 @@ void board ::unite(int x,int y)
 {
     int k,l,lp;
     bitboard tmp;
-#if SEARCH == 1
-    zValue ^= ztable.ZHT[j][i];
-#endif
+// #if SEARCH == 1
+//     zValue ^= ztable.ZHT[j][i];
+// #endif
     ban[0].add(i);
     ban[1].add(i);
     bitb[j].add(i);
@@ -74,9 +74,9 @@ bool board::check(int i,bool j)//j=0 =>b
     if(ban[j].get(i))return false;
     else if(notsafe[j].get(i)==0)return true;
     notsafe[j].minus(i);
-#if search == 2
-    // if(checkTriangle(i,j))return true;
-#endif
+// #if search == 2
+//     // if(checkTriangle(i,j))return true;
+// #endif
     for(k=0; k<nb.nbsize[i]; k++)
     {
         l=nb.nb[i][k];
@@ -215,9 +215,9 @@ void board::showParent()
 
 board::board()
 {
-#if SEARCH == 1
-    zValue = 0;
-#endif
+// #if SEARCH == 1
+//     zValue = 0;
+// #endif
     //clear();
 }
 
@@ -308,21 +308,21 @@ void board::setdata()
 {
     int i,j,k;
     memset(air,0,sizeof(air));
-#if SEARCH == 1
-    zValue = 0;
-#endif
+// #if SEARCH == 1
+//     zValue = 0;
+// #endif
     for(i=0; i<BOARDSSIZE; i++)
     {
-#if SEARCH == 1
-        if(bitb[0].get(i))
-        {
-            zValue ^= ztable.ZHT[0][i];
-        }
-        else if(bitb[1].get(i))
-        {
-            zValue ^= ztable.ZHT[1][i];
-        }
-#endif
+// #if SEARCH == 1
+//         if(bitb[0].get(i))
+//         {
+//             zValue ^= ztable.ZHT[0][i];
+//         }
+//         else if(bitb[1].get(i))
+//         {
+//             zValue ^= ztable.ZHT[1][i];
+//         }
+// #endif
         parent[i]=i;
     }
     for(i=0; i<BOARDCUL; i++)
@@ -365,9 +365,9 @@ void board::clear()
     {
         parent[i]=i;
     }
-#if SEARCH ==1
-	zvalue = 0;
-#endif
+// #if SEARCH ==1
+// 	zvalue = 0;
+// #endif
     bitb[0].clear();
     bitb[1].clear();
     ban[0].clear();

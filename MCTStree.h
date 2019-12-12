@@ -1,7 +1,6 @@
 #ifndef MCTS_H
 #define MCTS_H
 #include "ucbnode.h"
-#define raveb 0.0001
 class MCTStree
 {
 public:

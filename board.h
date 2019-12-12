@@ -32,10 +32,10 @@ public:
     bitboard notsafe[2];
     const static boardcn nb;// neighbor
 
-#if SEARCH == 1
-    static zhashtable ztable;
-    unsigned long long zValue;
-#endif
+// #if SEARCH == 1
+//     static zhashtable ztable;
+//     unsigned long long zValue;
+// #endif
     bitboard bitb[2];	
     char parent[BOARDCUL*BOARDCUL];
     bitboard air[BOARDCUL*BOARDCUL];
@@ -324,9 +324,9 @@ public:
     }
 #endif
 };
-#if SEARCH == 1
-zhashtable board :: ztable;
-#endif
+// #if SEARCH == 1
+// zhashtable board :: ztable;
+// #endif
 
 
 #endif

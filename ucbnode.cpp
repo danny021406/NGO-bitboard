@@ -39,18 +39,7 @@ void ucbnode::addresult(double result)
     count+=1;
     setlogc();
 }
-void ucbnode::addraveresult(double result)//result:-1 ��Ĺ 1 ��Ĺ
-{
-    if((result > 0 && color==BLACK) || (result < 0 && color==WHITE) )
-    {
-        ravemean = (ravemean*ravecount+1.00)/(ravecount+1);
-    }else
-    {
-        ravemean = (ravemean*ravecount)/(ravecount+1);
-    }
-    ravecount+=1;
-}
-void ucbnode::expansion(board &b,double rave_num[2][BOARDSSIZE] ,double rave_wnum[2][BOARDSSIZE])
+void ucbnode::expansion(board &b)
 {
 	int i,k;
 	bool j;
@@ -117,14 +106,14 @@ void ucbnode::show_child()
 		if(childptr[i].count<10)continue;
 		cerr<< inttoGTPstring((int)childptr[i].place)<<' '<<childptr[i].mean<<' '<<childptr[i].count<<' ';
 		//cerr<<sqrt( logc / ((childptr[i].count) - minusnum))* UCB_WEIGHT<<' ' ;
-		cerr<<(childptr[i].ravemean)<<' '<<(childptr[i].ravecount)<<endl;
+		// cerr<<(childptr[i].ravemean)<<' '<<(childptr[i].ravecount)<<endl;
 	}
 }
 float ucbnode::show_inf(int best)
 {
 		cerr<<"total : "<< count -basenum <<endl<<"winrate :"<<(childptr[best].mean);
 		//cerr<<"\nlog : "<<sqrt( logc / ((childptr[best].count) - minusnum))* UCB_WEIGHT ;
-		cerr<<"\nrave : "<<(childptr[best].ravemean)<<' '<<(childptr[best].ravecount)<<endl;
+		// cerr<<"\nrave : "<<(childptr[best].ravemean)<<' '<<(childptr[best].ravecount)<<endl;
 		return childptr[best].mean;
 }
 
