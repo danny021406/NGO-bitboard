@@ -84,20 +84,20 @@ int ucbnode::getbestmove()
 	return ret;
 }
 
-vector<float> ucbnode::getPolicy()
-{
-	vector<float> ret(BOARDSSIZE, 0);
-	float sum = 0;
-	for (int i = 0; i < csize; i++)
-	{
-		sum+= childptr[i].count;
-	}
-	for (int i = 0; i < csize; i++)
-	{
-		ret[childptr[i].place] = childptr[i].count / sum;
-	}
-	return ret;
-}
+// vector<float> ucbnode::getPolicy()
+// {
+// 	vector<float> ret(BOARDSSIZE, 0);
+// 	float sum = 0;
+// 	for (int i = 0; i < csize; i++)
+// 	{
+// 		sum+= childptr[i].count;
+// 	}
+// 	for (int i = 0; i < csize; i++)
+// 	{
+// 		ret[childptr[i].place] = childptr[i].count / sum;
+// 	}
+// 	return ret;
+// }
 
 void ucbnode::show_child()
 {
@@ -111,7 +111,7 @@ void ucbnode::show_child()
 }
 float ucbnode::show_inf(int best)
 {
-		cerr<<"total : "<< count -basenum <<endl<<"winrate :"<<(childptr[best].mean);
+		cerr<<"total : "<< count -basenum <<endl<<"winrate :"<<(childptr[best].mean)<<"\n";
 		//cerr<<"\nlog : "<<sqrt( logc / ((childptr[best].count) - minusnum))* UCB_WEIGHT ;
 		// cerr<<"\nrave : "<<(childptr[best].ravemean)<<' '<<(childptr[best].ravecount)<<endl;
 		return childptr[best].mean;

@@ -131,7 +131,7 @@ int main(int argc, char** argv)
 			k= tree.root -> getbestmove();
 			ucbnode* tmp = tree.root -> childptr;
 			int best_move = (tmp+k)->place;
-			policy = tree.root->getPolicy();
+			// policy = tree.root->getPolicy();
 			tree.root ->show_child();
 			value = tree.root ->show_inf(k);
 			cerr<<"simulation time : "<< (double)(e-st) / 1000.0<<endl;
@@ -141,29 +141,29 @@ int main(int argc, char** argv)
 			tree.show_path();
 			if(s != "reg_genmove")
 				b.add(best_move, !b.just_play_color());
-			if(value > 0.2)
-			{
-				cout<<"="<<inttoGTPstring(best_move)<<endl<<endl;
-			}else
-			{
-				cout<<"=resign"<<endl<<endl;
-			}
-			
+			// if(value > 0.2)
+			// {
+			// 	cout<<"="<<inttoGTPstring(best_move)<<endl<<endl;
+			// }else
+			// {
+			// 	cout<<"=resign"<<endl<<endl;
+			// }
+			cout<<"="<<inttoGTPstring(best_move)<<endl<<endl;
 			tree.clear();
 
 		}
-		else if (s == "policy")
-		{
-			for (int i = 0; i < 9; i++)
-			{
-				for (int j = 0; j < 9; j++)
-				{
-					cout << policy[i * 9 + j] << ' ';
-				}
-				cout << endl;
-			}
+		// else if (s == "policy")
+		// {
+		// 	for (int i = 0; i < 9; i++)
+		// 	{
+		// 		for (int j = 0; j < 9; j++)
+		// 		{
+		// 			cout << policy[i * 9 + j] << ' ';
+		// 		}
+		// 		cout << endl;
+		// 	}
 			
-		}
+		// }
 		else if (s == "value")
 		{
 			cout << value << endl;
@@ -174,11 +174,11 @@ int main(int argc, char** argv)
 		}
 		else if (s == "version")
 		{
-			cout<<"\n\n";
+			cout<<"=555\n\n";
 		}
 		else if (s == "list_commands")
 		{
-			cout<<"\n\n";
+			cout<<"=\n\n";
 		}
 		else if (s == "rev")
 		{
@@ -197,7 +197,7 @@ int main(int argc, char** argv)
 		}
 		else if(s== "name")
 		{
-			cout<<"dannyyyyy" << "\n\n";
+			cout<<"=dannyyyyy" << "\n\n";
 		}else if(s== "time")
 		{
 			cin>>t;

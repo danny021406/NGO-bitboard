@@ -5,13 +5,9 @@ double MCTStree::getscore( ucbnode* nodeptr, int child)
 	ucbnode *tmp = (nodeptr->childptr)+child;
 	char &p = tmp->place;
 	bool &c = tmp->color;
-	double &N = tmp->count ;
-	// double &NR = tmp->ravecount;tmp->ravemean*NR + 
-	double ret = tmp->mean*N +  sqrt( nodeptr->logc * N )* UCB_WEIGHT;
-	//cout<<tmp->ravemean<<' '<<ret/(N+NR)<<' '<<N<<' '<<NR<<' '<<nodeptr->logc<<endl;
-	//return tmp->mean + UCB_WEIGHT * sqrt(nodeptr->logc / (N + 1));
-	// +NR
-	return ret / (N);
+	double &N = tmp->count ; 
+	double ret = tmp->mean*N / N +  sqrt( nodeptr->logc * N )* UCB_WEIGHT;
+	return ret;
 }
 
 ucbnode* MCTStree::getbestchild(ucbnode* nodeptr)
@@ -91,7 +87,7 @@ void MCTStree::run_a_cycle()
 	select(b);
 	ucbnode &last=(*(path.back()));
 	ucbnode *nodeptr;
-	if(last.csize==0 && last.count > basenum )//�ܤ�simulate 1 ��
+	if(last.csize==0 && last.count > basenum )
 	{
 		last.expansion(b);
 		if(last.csize!=0)

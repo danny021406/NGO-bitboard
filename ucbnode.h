@@ -24,7 +24,7 @@ public:
     void initucbnode(int i,bool j);
     void addresult(double result);
     int getbestmove();
-	vector<float> getPolicy();
+	// vector<float> getPolicy();
     void show_child();
     float show_inf(int child);
     void expansion(board &b);
