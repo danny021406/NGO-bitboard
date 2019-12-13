@@ -4,7 +4,6 @@
 #define BOARDCUL 9
 #define BOARDSSIZE  81
 #define dolog 0
-#define RAVE 1
 #include<string.h>
 #include<iostream>
 #include<cstdio>

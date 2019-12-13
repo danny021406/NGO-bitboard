@@ -6,8 +6,8 @@ double MCTStree::getscore( ucbnode* nodeptr, int child)
 	char &p = tmp->place;
 	bool &c = tmp->color;
 	double &N = tmp->count ; 
-	double ret = tmp->mean*N / N +  sqrt( nodeptr->logc * N )* UCB_WEIGHT;
-	return ret;
+	double ret = tmp->mean*N +  sqrt( nodeptr->logc  )* UCB_WEIGHT;
+	return ret/ N;
 }
 
 ucbnode* MCTStree::getbestchild(ucbnode* nodeptr)
@@ -59,11 +59,9 @@ void MCTStree::select(board &b) // init
 	//	cout<<inttostring(nodeptr->place)<<' ';
 		if(nodeptr->color == BLACK)
 		{
-			b.addbp(nodeptr->place);
 			sbnum++;
 		}else
 		{
-			b.addwp(nodeptr->place);
 			swnum++;
 		}
 		b.add(nodeptr->place,nodeptr->color);
@@ -97,19 +95,15 @@ void MCTStree::run_a_cycle()
 			path.push_back(nodeptr);
 			if(nodeptr->color == 0)
 			{
-				b.addbp(nodeptr->place);
 				sbnum++;
 			}else
 			{
-				b.addwp(nodeptr->place);
 				swnum++;
 			}
 			b.add(nodeptr->place,nodeptr->color);
 			
 		}
 	}
-	total += sbnum;
-	total += swnum;
 	b.getv(bone,wone,two,bsize,wsize,tsize);
 	
 	if((b.just_play_color()==BLACK) && (wsize + tsize)==0)
