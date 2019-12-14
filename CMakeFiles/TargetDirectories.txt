@@ -1,3 +1,0 @@
-/home/0856055/share/NGO/CMakeFiles/rebuild_cache.dir
-/home/0856055/share/NGO/CMakeFiles/no.dir
-/home/0856055/share/NGO/CMakeFiles/edit_cache.dir
