@@ -84,27 +84,12 @@ int ucbnode::getbestmove()
 	return ret;
 }
 
-// vector<float> ucbnode::getPolicy()
-// {
-// 	vector<float> ret(BOARDSSIZE, 0);
-// 	float sum = 0;
-// 	for (int i = 0; i < csize; i++)
-// 	{
-// 		sum+= childptr[i].count;
-// 	}
-// 	for (int i = 0; i < csize; i++)
-// 	{
-// 		ret[childptr[i].place] = childptr[i].count / sum;
-// 	}
-// 	return ret;
-// }
-
 void ucbnode::show_child()
 {
 	for(int i=0;i<csize;i++)
 	{
 		if(childptr[i].count<10)continue;
-		cerr<< inttoGTPstring((int)childptr[i].place)<<' '<<childptr[i].mean<<' '<<childptr[i].count<<' ';
+		cerr<< inttoGTPstring((int)childptr[i].place)<<' '<<childptr[i].mean<<' '<<childptr[i].count<<' '<<endl;
 		//cerr<<sqrt( logc / ((childptr[i].count) - minusnum))* UCB_WEIGHT<<' ' ;
 		// cerr<<(childptr[i].ravemean)<<' '<<(childptr[i].ravecount)<<endl;
 	}
